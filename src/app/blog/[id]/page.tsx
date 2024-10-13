@@ -18,7 +18,7 @@ const BlogDetailPage = async ({ params }: { params: { id: string } }) => {
             <div className="bg-gray-100 p-4 rounded">
                 
                   <div
-            className="prose" // Tailwind class for better typography
+            className="" // Tailwind class for better typography
             dangerouslySetInnerHTML={{ __html: blog.content }}
           />
             </div>
