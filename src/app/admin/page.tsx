@@ -89,7 +89,7 @@ export default function AdminPage() {
           <h2 className="text-xl font-semibold">Blogs</h2>
           <ul>
             {blogs.map((blog) => (
-              <li key={blog._id} className="flex justify-between items-center bg-gray-100 p-2 rounded mb-2">
+              <li key={blog._id} className="sm:flex justify-between items-center bg-gray-100 p-2 rounded mb-2">
                 <div>
                   <h3 className="font-semibold">{blog.title}</h3>
                   <p>{stripHtmlTags(blog.content).substring(0, 50)}...</p>
