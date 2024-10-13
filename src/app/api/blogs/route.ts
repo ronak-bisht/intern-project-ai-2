@@ -1,8 +1,8 @@
 import dbConnect from "@/lib/dbConnect";
 import Blog from "@/model/blogSchema";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export const POST = async (req:Response) => {
+export const POST = async (req: NextRequest) => {
     try {
         const body = await req.json();
         await dbConnect();
@@ -24,10 +24,3 @@ export const GET = async () => {
         return NextResponse.json({ error: "Failed to fetch blogs" }, { status: 500 });
     }
 };
-
-    // export const DELETE=async(req:Request)=>{
-    //     // const id=req.nextUrl.searchParams. get id
-    //     await dbConnect()
-    //     await Blog.findByIdAndDelete("id")
-    //     return NextResponse.json({message:"Blog deleted"},{status:200})
-    // }

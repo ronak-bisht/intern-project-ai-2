@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 const BlogDetailPage = async ({ params }: { params: { id: string } }) => {
@@ -6,7 +7,6 @@ const BlogDetailPage = async ({ params }: { params: { id: string } }) => {
         cache: 'no-store', // Ensure fresh data is fetched each time
     });
     const blog = await response.json();
-console.log('hello')
     if (response.status === 404) {
         return <div>Blog not found.</div>;
     }

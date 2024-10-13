@@ -25,13 +25,13 @@ export default function AdminPage() {
   }, []);
 
   const fetchBlogs = async () => {
-    const response = await fetch('/api/blogs');
+    const response = await fetch('http://localhost:3000/api/blogs');
     const data = await response.json();
     setBlogs(data.blogs);
   };
 
   const handleDelete = async (id: string) => {
-    const response = await fetch(`/api/blogs/${id}`, {
+    const response = await fetch(`http://localhost:3000/api/blogs/${id}`, {
       method: 'DELETE',
     });
 
@@ -50,7 +50,7 @@ export default function AdminPage() {
       return;
     }
 
-    const response = await fetch('/api/blogs', {
+    const response = await fetch('http://localhost:3000/api/blogs', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ ...newBlog, blogId: formatBlogName(newBlog.title) }),

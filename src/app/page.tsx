@@ -1,4 +1,4 @@
-import Image from "next/image";
+"use client"
 import BlogList from "./components/BlogList";
 
 export default function Home() {
