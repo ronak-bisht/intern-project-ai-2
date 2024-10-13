@@ -5,6 +5,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import stripHtmlTags from '@/lib/stripHtmlTags';
+import API_URL from '../../../config/config';
 
 interface Blog {
   _id: string;
@@ -22,7 +23,7 @@ export default function BlogList() {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/api/blogs`, {
+        const response = await fetch(`${API_URL}/api/blogs`, {
           cache: 'no-store', // Use 'no-store' to ensure fresh data is fetched each time
         });
 

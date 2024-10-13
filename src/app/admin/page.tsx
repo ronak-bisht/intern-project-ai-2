@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic';
 import { useRouter } from 'next/navigation';
 import formatBlogName from '@/lib/formatBlogName';
 import 'react-quill/dist/quill.snow.css';
+import API_URL from '../../../config/config';
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 
 export default function AdminPage() {
@@ -25,13 +26,13 @@ export default function AdminPage() {
   }, []);
 
   const fetchBlogs = async () => {
-    const response = await fetch('http://localhost:3000/api/blogs');
+    const response = await fetch(`${API_URL}/api/blogs`);
     const data = await response.json();
     setBlogs(data.blogs);
   };
 
   const handleDelete = async (id: string) => {
-    const response = await fetch(`http://localhost:3000/api/blogs/${id}`, {
+    const response = await fetch(`${API_URL}/api/blogs/${id}`, {
       method: 'DELETE',
     });
 
@@ -50,7 +51,7 @@ export default function AdminPage() {
       return;
     }
 
-    const response = await fetch('http://localhost:3000/api/blogs', {
+    const response = await fetch(`${API_URL}/api/blogs`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ ...newBlog, blogId: formatBlogName(newBlog.title) }),

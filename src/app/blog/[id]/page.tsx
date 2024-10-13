@@ -1,9 +1,10 @@
 
 import React from 'react';
+import API_URL from '../../../../config/config';
 
 const BlogDetailPage = async ({ params }: { params: { id: string } }) => {
     // Fetch the blog details using the dynamic id
-    const response = await fetch(`http://localhost:3000/api/blogs/${params.id}` ,{
+    const response = await fetch(`${API_URL}/api/blogs/${params.id}` ,{
         cache: 'no-store', // Ensure fresh data is fetched each time
     });
     const blog = await response.json();

@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import 'react-quill/dist/quill.snow.css';
+import API_URL from '../../../../../config/config';
 
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 
@@ -14,7 +15,7 @@ const UpdateBlogPage = ({ params }: { params: { id: string } }) => {
     useEffect(() => {
         const fetchBlogDetails = async () => {
             try {
-                const response = await fetch(`http://localhost:3000/api/blogs/${params.id}`);
+                const response = await fetch(`${API_URL}/api/blogs/${params.id}`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch blog details');
                 }
@@ -56,7 +57,7 @@ const UpdateBlogPage = ({ params }: { params: { id: string } }) => {
         }
 
         try {
-            const response = await fetch(`http://localhost:3000/api/blogs/${params.id}`, {
+            const response = await fetch(`${API_URL}/api/blogs/${params.id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
