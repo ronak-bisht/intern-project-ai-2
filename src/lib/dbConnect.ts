@@ -7,7 +7,7 @@ type ConnectionObject = {
 const connection: ConnectionObject = {};
 
 // Hardcoded MongoDB connection string
-const MONGODB_URI = 'mongodb+srv://root:babyboss@cluster0.5mes4.mongodb.net/Intern?retryWrites=true&w=majority';
+const MONGODB_URI = 'dburl';
 
 // Function to connect to MongoDB
 async function dbConnect(): Promise<void> {
